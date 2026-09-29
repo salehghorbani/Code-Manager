@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Offline-first developer code manager">
+  <title>Code Manager</title>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <button class="brand" id="homeButton" type="button" aria-label="Home">
+          <span class="brand-mark">&lt;/&gt;</span>
+          <span class="brand-text">Code Manager</span>
+          <div id="statsGrid" class="stats-grid header-stats"></div>
+        </button>
+      
+      </div>
+
+      <div class="topbar-actions">
+        <div id="statsGrid" class="stats-grid header-stats"></div>
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" class="search-input" type="search" autocomplete="off"
+                 placeholder="Search codes, folders, languages..." data-i18n-placeholder="searchPlaceholder">
+          <kbd>Ctrl K</kbd>
+        </div>
+
+        <button id="filterButton" class="icon-button" type="button" title="Filter" data-i18n-title="filter">
+          <span>≡</span>
+        </button>
+
+        <button id="sortButton" class="icon-button" type="button" title="Sort" data-i18n-title="sort">
+          <span>↕</span>
+        </button>
+        <button id="themeButton" class="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="theme-orb"></span>
+          <span id="themeIcon">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section id="dashboardView" class="view">
+        <div class="dashboard-head">
+          <div>
+            <div class="eyebrow" data-i18n="workspace">WORKSPACE</div>
+            <h1 data-i18n="allItems">All items</h1>
+          </div>
+          <div class="primary-actions">
+            <button id="newFolderButton" class="button button-secondary" type="button">
+              <span>＋</span><span data-i18n="newFolder">New Folder</span>
+            </button>
+            <button id="newCodeButton" class="button button-primary" type="button">
+              <span>＋</span><span data-i18n="newCode">New Code</span>
+            </button>
+          </div>
+        </div>
+
+
+        <div class="toolbar-row">
+          <div id="breadcrumb" class="breadcrumb"></div>
+          <div class="toolbar-right"><div id="resultCount" class="result-count"></div><button id="selectVisibleButton" class="small-button" type="button" data-i18n="selectVisible">Select visible</button></div>
+        </div>
+
+        <div id="bulkBar" class="bulk-bar hidden"><strong data-selected-count>0</strong><button id="bulkMoveButton" class="small-button" type="button" data-i18n="moveSelected">Move</button><button id="bulkDeleteButton" class="small-button danger" type="button" data-i18n="deleteSelected">Delete</button><button id="bulkClearButton" class="small-button" type="button" data-i18n="clearSelection">Clear</button></div>
+        <div id="explorerGrid" class="explorer-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://t.me/BetterCall_saleh" target="_blank" rel="noopener noreferrer">saleh</a>
+        <a href="https://github.com/salehghorbani" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://t.me/ByteForge_IR" target="_blank" rel="noopener noreferrer">ByteForge</a>
+      </div>
+      <div class="footer-actions">
+        <button id="backupButton" class="footer-button" type="button" data-i18n="backup">Backup</button>
+        <button id="importButton" class="footer-button" type="button" data-i18n="import">Import</button>
+        <input id="importFileInput" type="file" accept=".json,application/json" hidden>
+
+        <div class="language-menu-wrap">
+          <button id="languageButton" class="footer-button" type="button">EN</button>
+          <div id="languageMenu" class="popover language-menu hidden"></div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root" aria-live="polite"></div>
+
+  <script src="vendor/prism/prism-bundle.min.js"></script>
+  <script src="assets/js/constants.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/highlighter.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/editor.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
